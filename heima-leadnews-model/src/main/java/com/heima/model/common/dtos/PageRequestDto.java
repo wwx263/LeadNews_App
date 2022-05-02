@@ -18,4 +18,21 @@ public class PageRequestDto {
             setSize(10);
         }
     }
+
+//    public static void main(String[] args) {
+//        PageRequestDto dto = new PageRequestDto();
+//        PageRequestDto dto2 = new PageRequestDto();
+//        System.out.println(dto);
+//        List list = new ArrayList();
+//        dto.setPage(1);
+//        dto2.setPage(1);
+//        dto.setSize(10);
+//        dto2.setSize(10);
+//        list.add(dto);
+//        list.add(dto2);
+//        String jsonString = JSON.toJSONString(list);
+//        String dtoString = JSON.toJSONString(dto);
+//        System.out.println(jsonString);
+//        System.out.println(dtoString);
+//    }
 }

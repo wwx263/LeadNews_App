@@ -1,10 +1,15 @@
 package com.heima.model.common.dtos;
 
 import java.io.Serializable;
-
+/**
+ * 分页的结果返回对象
+ */
 public class PageResponseResult extends ResponseResult implements Serializable {
+    //当前页码
     private Integer currentPage;
+    //所有页数
     private Integer size;
+    //完整数据个数
     private Integer total;
 
     public PageResponseResult(Integer currentPage, Integer size, Integer total) {
@@ -16,7 +21,6 @@ public class PageResponseResult extends ResponseResult implements Serializable {
     public PageResponseResult() {
 
     }
-
 
     public int getCurrentPage() {
         return currentPage;

@@ -6,10 +6,14 @@ import lombok.extern.slf4j.Slf4j;
 @Data
 @Slf4j
 public class PageRequestDto {
-
+    //页数size
     protected Integer size;
+    //页数
     protected Integer page;
 
+    /**
+     * 用于检查对象的页数和页码是否合法
+     */
     public void checkParam() {
         if (this.page == null || this.page < 0) {
             setPage(1);

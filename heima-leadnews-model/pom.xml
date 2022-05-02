@@ -13,6 +13,7 @@
     <name>heima-leadnews-model</name>
 
     <dependencies>
+        <!--   mysql和mybatis 和mybatisPlus导包     -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -22,14 +23,37 @@
             <artifactId>mybatis</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
 
+        <!-- springboot 的web -->
+        <dependency>
+          <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- 给lombok插件使用-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        <!--maven中三种classpath
+            编译，测试，运行
+            1.compile：默认范围，编译测试运行都有效
+            2.provided：在编译和测试时有效
+            3.runtime：在测试和运行时有效
+            4.test:只在测试时有效
+            5.system:在编译和测试时有效，与本机系统关联，可移植性差-->
+            <scope>provided</scope>
+        </dependency>
+
+        <!--  apache的常用类包      -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
+       <!--   json包     -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>

@@ -48,7 +48,7 @@ public class AdChannelServiceImpl extends ServiceImpl<AdChannelMapper, AdChannel
 
         //3.结果封装
         PageResponseResult responseResult = new PageResponseResult(dto.getPage(),dto.getSize(),(int)result.getTotal());
-
+        responseResult.setData(result.getRecords());
         return responseResult;
     }
 }

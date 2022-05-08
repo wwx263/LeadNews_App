@@ -20,7 +20,7 @@ public class AdminApplication {
     }
 
     /**
-     *  mybatis-plus分页插件
+     *  mybatis-plus分页插件,是一个拦截器
      */
     @Bean
     public PaginationInterceptor paginationInterceptor(){

@@ -23,7 +23,7 @@ public class AdChannel implements Serializable {
     /**
      * 频道名称
      */
-    @TableId("name")
+    @TableField("name")
     private String name;
 
     /**

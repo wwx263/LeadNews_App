@@ -14,6 +14,8 @@ import com.heima.model.common.enums.AppHttpCodeEnum;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 /**
  * 这个service注解写在哪里,请求就往哪里走,一般还有写在interface类当中的
  * 这里使用到了mybatisplus的服务,所以需要继承对应的serviceImpl<XXXMapper,xxx(对应实体类)>
@@ -50,5 +52,22 @@ public class AdChannelServiceImpl extends ServiceImpl<AdChannelMapper, AdChannel
         PageResponseResult responseResult = new PageResponseResult(dto.getPage(),dto.getSize(),(int)result.getTotal());
         responseResult.setData(result.getRecords());
         return responseResult;
+    }
+
+    /**
+     * 保存数据到 ad_channel表中
+     * @param channel
+     * @return
+     */
+    @Override
+    public ResponseResult insert(AdChannel channel) {
+        if (null==channel){
+            return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
+        }
+        channel.setCreatedTime(new Date());
+
+        save(channel);
+
+        return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
 }

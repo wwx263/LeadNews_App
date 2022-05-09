@@ -1,6 +1,8 @@
 package com.heima.apis.admin;
 
+import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.heima.model.admin.dtos.ChannelDto;
+import com.heima.model.admin.pojos.AdChannel;
 import com.heima.model.common.dtos.ResponseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -18,6 +20,15 @@ public interface AdChannelControllerApi {
      */
     @ApiOperation("频道分页列表查询")
     public ResponseResult findByNameAndPage(ChannelDto dto);
+
+    /**
+     * 保存频道内容
+     * @param channel
+     * @return
+     */
+    @ApiOperation("保存频道")
+    @ApiOperationSupport(ignoreParameters = {"id","createdTime"})
+    ResponseResult save (AdChannel channel);
 
 
 }

@@ -3,6 +3,7 @@ package com.heima.admin.controller.v1;
 import com.heima.admin.service.AdChannelService;
 import com.heima.apis.admin.AdChannelControllerApi;
 import com.heima.model.admin.dtos.ChannelDto;
+import com.heima.model.admin.pojos.AdChannel;
 import com.heima.model.common.dtos.ResponseResult;
 import com.heima.model.common.enums.AppHttpCodeEnum;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,15 @@ public class AdChannelController implements AdChannelControllerApi {
         return adChannelService.findByNameAndPage(dto);
     }
 
+    @PostMapping("/save")
+    @Override
+    public ResponseResult save(@RequestBody AdChannel channel) {
+        if (null == channel) {
+            return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
+        }
+
+        return adChannelService.insert(channel);
+    }
 
 
     //-------------------------------------------------------------------------------------------------------------------

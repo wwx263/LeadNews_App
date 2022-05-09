@@ -25,7 +25,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 public class SwaggerConfiguration {
     //创建docket
-    @Bean
+    @Bean(value = "defaultApi2")
     public Docket buildDocket() {
 
         return new Docket(DocumentationType.SWAGGER_2)

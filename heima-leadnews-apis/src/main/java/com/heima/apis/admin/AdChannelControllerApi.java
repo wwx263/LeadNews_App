@@ -30,5 +30,22 @@ public interface AdChannelControllerApi {
     @ApiOperationSupport(ignoreParameters = {"id","createdTime"})
     ResponseResult save (AdChannel channel);
 
+    /**
+     * 编辑频道
+     * @param channel
+     * @return
+     */
+    @ApiOperation("编辑频道")
+    @ApiOperationSupport(ignoreParameters = {"createdTime"})
+    ResponseResult update(AdChannel channel);
+
+    /**
+     * 删除频道
+     * @param id
+     * @return
+     */
+    @ApiOperation("删除频道")
+    @ApiOperationSupport(ignoreParameters = "createdTime")
+    ResponseResult deleteById(Integer id);
 
 }

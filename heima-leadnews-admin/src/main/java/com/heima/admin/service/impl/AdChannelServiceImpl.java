@@ -70,4 +70,43 @@ public class AdChannelServiceImpl extends ServiceImpl<AdChannelMapper, AdChannel
 
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
+
+    /**
+     * 编辑频道
+     * @param channel
+     * @return
+     */
+    @Override
+    public ResponseResult updateChannel(AdChannel channel) {
+        //1.检查参数
+        if (null==channel){
+            return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
+        }
+        //2.修改
+        updateById(channel);
+        return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
+    }
+
+    /**
+     * 用id删除频道
+     * @param id
+     * @return
+     */
+    @Override
+    public ResponseResult deleteChannelById(Integer id) {
+        if (null==id){
+            return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
+        }
+        AdChannel channel = getById(id);
+        if (channel == null){
+            //删除
+            return ResponseResult.errorResult(AppHttpCodeEnum.DATA_NOT_EXIST);
+        }
+        if (channel.getStatus()){
+            return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID,"频道有效不能删除");
+        }
+     //测试事物 int i = 10/0;
+        removeById(id);
+        return ResponseResult.errorResult(AppHttpCodeEnum.SUCCESS);
+    }
 }

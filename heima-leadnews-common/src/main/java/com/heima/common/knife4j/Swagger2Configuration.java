@@ -1,4 +1,4 @@
-package com.heima.admin.config;
+package com.heima.common.knife4j;
 
 import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import org.springframework.context.annotation.Bean;
@@ -9,7 +9,6 @@ import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -23,28 +22,27 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * swagger的配置类,可以拿出配置中的数据信息,省去了使用xml注解
  */
-public class SwaggerConfiguration {
+public class Swagger2Configuration {
     //创建docket
     @Bean(value = "defaultApi2")
-    public Docket buildDocket() {
-
-        return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(buildApiInfo()).
-                select()
-                // 要扫描的API(Controller)基础包
+    public Docket defaultApi2() {
+        Docket docket=new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                //分组名称
+                .groupName("1.0")
+                .select()
+                //这里指定Controller扫描包路径
                 .apis(RequestHandlerSelectors.basePackage("com.heima"))
                 .paths(PathSelectors.any())
                 .build();
+        return docket;
     }
-
     //创建接口文档的方法
-    private ApiInfo buildApiInfo() {
-        Contact contact = new Contact("乐天看点", "", "");
+    private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("乐天看点-平台管理API文档")
-                .description("平台管理服务api")
-                .contact(contact)
-                .version("1.0.0")
+                .title("乐天看点API文档")
+                .description("乐天看点API文档")
+                .version("1.0")
                 .build();
     }
 }

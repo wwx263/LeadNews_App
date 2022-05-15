@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/admin/channel")
+@RequestMapping("/api/v1/channel")
 public class AdChannelController implements AdChannelControllerApi {
 
     /*频道服务 在admin模块下,调用自己包下服务使用autowired 远程则用 reference*/
@@ -64,7 +64,7 @@ public class AdChannelController implements AdChannelControllerApi {
      * @param id
      * @return
      */
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/del/{id}")
     @Override
     public ResponseResult deleteById(@PathVariable("id") Integer id) {
         if (id==null){

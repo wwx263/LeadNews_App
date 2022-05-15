@@ -25,6 +25,7 @@ public class AdChannelServiceImpl extends ServiceImpl<AdChannelMapper, AdChannel
 
     /**
      * 自定义页数来查询数据,page 1 size 10 ; 来根据dto 模糊查询 AdChannel
+     *
      * @param dto
      * @return
      */
@@ -39,29 +40,30 @@ public class AdChannelServiceImpl extends ServiceImpl<AdChannelMapper, AdChannel
         dto.checkParam();
 
         //2.安装名称模糊分页查询
-        Page page = new Page(dto.getPage(),dto.getSize());
+        Page page = new Page(dto.getPage(), dto.getSize());
         //查询条件构造器
         LambdaQueryWrapper<AdChannel> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         if (StringUtils.isNotBlank(dto.getName())) {
-            lambdaQueryWrapper.like(AdChannel::getName,dto.getName());
+            lambdaQueryWrapper.like(AdChannel::getName, dto.getName());
         }
         //page方法来自ServiceImpl,用于执行分页查询:按照条件构造器,pag参数
         IPage result = page(page, lambdaQueryWrapper);
 
         //3.结果封装
-        PageResponseResult responseResult = new PageResponseResult(dto.getPage(),dto.getSize(),(int)result.getTotal());
+        PageResponseResult responseResult = new PageResponseResult(dto.getPage(), dto.getSize(), (int) result.getTotal());
         responseResult.setData(result.getRecords());
         return responseResult;
     }
 
     /**
      * 保存数据到 ad_channel表中
+     *
      * @param channel
      * @return
      */
     @Override
     public ResponseResult insert(AdChannel channel) {
-        if (null==channel){
+        if (null == channel) {
             return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
         }
         channel.setCreatedTime(new Date());
@@ -73,13 +75,14 @@ public class AdChannelServiceImpl extends ServiceImpl<AdChannelMapper, AdChannel
 
     /**
      * 编辑频道
+     *
      * @param channel
      * @return
      */
     @Override
     public ResponseResult updateChannel(AdChannel channel) {
         //1.检查参数
-        if (null==channel){
+        if (null == channel || channel.getId() == null) {
             return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
         }
         //2.修改
@@ -89,23 +92,24 @@ public class AdChannelServiceImpl extends ServiceImpl<AdChannelMapper, AdChannel
 
     /**
      * 用id删除频道
+     *
      * @param id
      * @return
      */
     @Override
     public ResponseResult deleteChannelById(Integer id) {
-        if (null==id){
+        if (null == id) {
             return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
         }
         AdChannel channel = getById(id);
-        if (channel == null){
+        if (channel == null) {
             //删除
             return ResponseResult.errorResult(AppHttpCodeEnum.DATA_NOT_EXIST);
         }
-        if (channel.getStatus()){
-            return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID,"频道有效不能删除");
+        if (channel.getStatus()) {
+            return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID, "频道有效不能删除");
         }
-     //测试事物 int i = 10/0;
+        //测试事物 int i = 10/0;
         removeById(id);
         return ResponseResult.errorResult(AppHttpCodeEnum.SUCCESS);
     }

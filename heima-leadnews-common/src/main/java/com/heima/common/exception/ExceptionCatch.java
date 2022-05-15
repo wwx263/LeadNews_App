@@ -22,6 +22,6 @@ public class ExceptionCatch {
         //记录日志
         log.error("catch exception:{}",exception.getMessage());
         //返回通用异常
-        return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
+        return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID,"系统正在维护,请稍后重试");
     }
 }

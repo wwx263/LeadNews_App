@@ -63,9 +63,7 @@ public class AdChannelServiceImpl extends ServiceImpl<AdChannelMapper, AdChannel
      */
     @Override
     public ResponseResult insert(AdChannel channel) {
-        if (null == channel) {
-            return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
-        }
+
         channel.setCreatedTime(new Date());
 
         save(channel);

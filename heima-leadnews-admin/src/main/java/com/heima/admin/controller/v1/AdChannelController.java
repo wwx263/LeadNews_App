@@ -31,6 +31,7 @@ public class AdChannelController implements AdChannelControllerApi {
 
     /**
      * 保存频道
+     *
      * @param channel
      * @return
      */
@@ -46,13 +47,15 @@ public class AdChannelController implements AdChannelControllerApi {
 
     /**
      * 更新频道
+     *
      * @param channel
      * @return
      */
     @PostMapping("/update")
     @Override
     public ResponseResult update(@RequestBody AdChannel channel) {
-        if (null == channel) {
+        //1.检查参数
+        if (null == channel || channel.getId() == null) {
             return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
         }
 
@@ -61,13 +64,14 @@ public class AdChannelController implements AdChannelControllerApi {
 
     /**
      * 用id删除频道
+     *
      * @param id
      * @return
      */
     @DeleteMapping("/del/{id}")
     @Override
     public ResponseResult deleteById(@PathVariable("id") Integer id) {
-        if (id==null){
+        if (null == id) {
             return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
         }
         return adChannelService.deleteChannelById(id);
@@ -110,7 +114,6 @@ public class AdChannelController implements AdChannelControllerApi {
         }, threadPool).thenRunAsync(()->{
             System.out.println("线程B 去启动，并且没法接受线程1的返回值");
         },threadPool);*/
-
 
 
 //

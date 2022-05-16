@@ -37,7 +37,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_STRING" value="-parameters" />
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="HeimaTouTiao" options="" />
+      <module name="HeimaTouTiao" options="-parameters" />
       <module name="heima-leadnews" options="" />
       <module name="heima-leadnews-admin" options="-parameters" />
       <module name="heima-leadnews-apis" options="-parameters" />

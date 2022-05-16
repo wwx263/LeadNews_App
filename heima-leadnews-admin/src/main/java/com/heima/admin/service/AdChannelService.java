@@ -34,7 +34,7 @@ public interface AdChannelService extends IService<AdChannel> {
 
     /**
      * 用id删除频道
-     * @param channel
+     * @param id
      * @return
      */
     public ResponseResult deleteChannelById(Integer id);

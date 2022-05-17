@@ -1,4 +1,4 @@
-package com.heima.user.controller;
+package com.heima.user.controller.v1;
 
 import com.heima.apis.user.ApUserRealnameControllerApi;
 import com.heima.model.common.dtos.PageResponseResult;
@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/auth")
+/**
+ * 该接口用于查询用户申请实名制的情况,例如还未通过审核的频道申请
+ */
 public class ApUserRealnameController implements ApUserRealnameControllerApi {
 
     @Autowired

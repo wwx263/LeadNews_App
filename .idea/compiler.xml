@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="heima-leadnews-apis" />
         <module name="heima-leadnews-utils" />
+        <module name="heima-leadnews-wemedia" />
         <module name="heima-leadnews-admin" />
         <module name="heima-leadnews-admin-gateway" />
         <module name="heima-leadnews-user" />
@@ -30,7 +31,6 @@
       <module name="heima-leadnews-media" target="1.8" />
       <module name="heima-leadnews-migration" target="1.8" />
       <module name="heima-leadnews-search" target="1.8" />
-      <module name="heima-leadnews-wemedia" target="1.8" />
       <module name="leadnews-admin" target="1.8" />
       <module name="service-mycat" target="1.8" />
     </bytecodeTargetLevel>
@@ -38,7 +38,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_STRING" value="-parameters" />
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="HeimaTouTiao" options="" />
+      <module name="HeimaTouTiao" options="-parameters" />
       <module name="heima-leadnews" options="" />
       <module name="heima-leadnews-admin" options="-parameters" />
       <module name="heima-leadnews-apis" options="-parameters" />
@@ -59,7 +59,7 @@
       <module name="heima-leadnews-search" options="" />
       <module name="heima-leadnews-user" options="-parameters" />
       <module name="heima-leadnews-utils" options="-parameters" />
-      <module name="heima-leadnews-wemedia" options="" />
+      <module name="heima-leadnews-wemedia" options="-parameters" />
       <module name="leadnews-admin" options="" />
       <module name="service-mycat" options="" />
     </option>

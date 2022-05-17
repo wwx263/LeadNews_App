@@ -7,18 +7,19 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * <p>
- * APP实名认证信息表
+ * APP实名认证待审核信息表,只要发起审核,数据就先入库到该表,通过审核之后,修改状态
  * </p>
  *
  * @author itheima
  */
 @Data
 @TableName("ap_user_realname")
-public class ApUserRealname {
+public class ApUserRealname implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**

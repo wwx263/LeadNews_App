@@ -2,6 +2,7 @@ package com.heima.user.controller.v1;
 
 import com.heima.apis.user.ApUserRealnameControllerApi;
 import com.heima.model.common.dtos.PageResponseResult;
+import com.heima.model.common.dtos.ResponseResult;
 import com.heima.model.common.enums.AppHttpCodeEnum;
 import com.heima.model.user.dtos.AuthDto;
 import com.heima.user.service.ApUserRealnameService;
@@ -32,5 +33,23 @@ public class ApUserRealnameController implements ApUserRealnameControllerApi {
             return (PageResponseResult) PageResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID,"参数不能为空");
         }
         return apUserRealnameService.loadListByStatus(dto);
+    }
+    /**
+     * 审核通过
+     * @param dto
+     * @return
+     */
+    @Override
+    public ResponseResult authPass(AuthDto dto) {
+        return null;
+    }
+    /**
+     * 审核失败
+     * @param dto
+     * @return
+     */
+    @Override
+    public ResponseResult authFail(AuthDto dto) {
+        return null;
     }
 }

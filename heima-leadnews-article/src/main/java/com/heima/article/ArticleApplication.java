@@ -1,27 +1,24 @@
-package com.heima.user;
+package com.heima.article;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableFeignClients
-/**
- * user微服务的启动类
- */
-@MapperScan("com.heima.user.mapper")
-public class UserApplication {
+@MapperScan("com.heima.article.mapper")
+public class ArticleApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(UserApplication.class, args);
+        SpringApplication.run(ArticleApplication.class,args);
     }
+
     /**
-     *  mybatis-plus分页插件,是一个拦截器
+     * mybatis-plus分页插件
+     * @return
      */
     @Bean
     public PaginationInterceptor paginationInterceptor(){

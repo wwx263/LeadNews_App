@@ -35,7 +35,7 @@ public class ApUserRealnameController implements ApUserRealnameControllerApi {
         return apUserRealnameService.loadListByStatus(dto);
     }
     /**
-     * 审核通过
+     * 由审核人员操作,审核通过
      * @param dto
      * @return
      */
@@ -44,7 +44,7 @@ public class ApUserRealnameController implements ApUserRealnameControllerApi {
         return null;
     }
     /**
-     * 审核失败
+     * 审核人员操作,审核不通过
      * @param dto
      * @return
      */
